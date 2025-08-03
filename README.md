@@ -35,7 +35,6 @@ end
 
 def process_deployment
   payload = JSON.parse(@payload['payload'])
-  # you can send this information to your chat room, monitor, pager, etc.
   puts "Processing '#{@payload['description']}' for #{payload['deploy_user']} to #{payload['environment']}"
   sleep 2 # simulate work
   @client.create_deployment_status("repos/#{@payload['repository']['full_name']}/deployments/#{@payload['id']}", 'pending')
